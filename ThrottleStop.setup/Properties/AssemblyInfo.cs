@@ -6,9 +6,10 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyTitle("ThrottleStop.setup")]
 [assembly: AssemblyDescription("Contains install/uninstall actions for base ThrottleStop package")]
-[assembly: AssemblyCompany("ThrottleStop")]
+[assembly: AssemblyCompany("pspatel321")]
 [assembly: AssemblyProduct("ThrottleStop")]
-[assembly: AssemblyCopyright("Copyright 2019")]
+[assembly: AssemblyCopyright("Copyright © 2019 Parth Patel")]
+[assembly: AssemblyMetadata("WebUrl", @"https://github.com/pspatel321/ThrottleStop-msi-installer")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
 // to COM components.  If you need to access a type in this assembly from
