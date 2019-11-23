@@ -12,4 +12,4 @@ The repo contains no binary files from the original ThrottleStop project. You mu
 Now open Visual Studio on the solution file. If you already had it open at the time, Reload the project. Click Build Solution and the output .msi installer will be created.  The Visual Studio solution contains both a C# project (the custom actions for startup task creation) and a Windows Setup project (the installer).  This project is kept simple and mostly standard/default settings.
 
 # License
-Fully-permissive, do whatever you want with this.
+Fully-permissive under the [Unlicense](LICENSE).
