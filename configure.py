@@ -194,4 +194,4 @@ if __name__=='__main__':
         filesR = [f for f in files if f in ommitFiles]
         setFilesToGroup(group, zipf, filesI, filesR)
         xmlWrite(proj)
-        print(f'Zip program files were successfully inserted into project.')
+        print(f'Zip program files were successfully inserted into project. Reload the VS project, or open it now to proceed with building.')
