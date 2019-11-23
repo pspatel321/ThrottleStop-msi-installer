@@ -53,20 +53,23 @@ if __name__=='__main__':
         else:
             return files[-1]
     
-    _first = ''
+    firstLine = ''
     # Read project file into xml etree object
     def xmlRead():
+        global firstLine
         with open(projFile, 'r') as f:
             st = f.read().replace('<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">', '<Project>')
-            _first = st[:st.find('\n') + 1]
+            firstLine = st[:st.find('\n') + 1]
+            st = st[st.find('\n') + 1:]
             proj = xml.fromstring(st.encode())
             return proj
 
     # Write project file from xml etree object
     def xmlWrite(xmlObj):
+        global firstLine
         st = xml.tostring(proj).decode()
         st = st.replace('<Project>', '<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">')
-        st = _first + st
+        st = firstLine + st
         with open(projFile, 'w') as f:
             f.write(st)
     
