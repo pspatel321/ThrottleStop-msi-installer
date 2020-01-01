@@ -44,6 +44,14 @@ namespace ThrottleStop.setup
         {
             base.OnBeforeUninstall(savedState);
 
+            // Kill running process
+            var procs = Process.GetProcessesByName(Assembly.GetExecutingAssembly().GetCustomAttribute<AssemblyProductAttribute>().Product);
+            foreach (var p in procs)
+            {
+                p.Kill();
+                p.WaitForExit();
+            }
+
             // Delete RwDrv.sys file
             string outpath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "RwDrv.sys");
             File.Delete(outpath);
