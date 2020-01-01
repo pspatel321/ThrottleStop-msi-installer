@@ -12,8 +12,8 @@ webUrl='https://www.techpowerup.com/download/techpowerup-throttlestop/'
 if __name__=='__main__':
     parser = argparse.ArgumentParser(description='Assist in fetching package files from the web to create the Program Files directory.')
     group = parser.add_mutually_exclusive_group()
-    group.add_argument('--configure', nargs='*', help='User interactive procedure to retrieve the .zip file from web; optionally provide file path as the next argument')
-    group.add_argument('--clean-configure', nargs='*', help='Remove web-derived files')
+    group.add_argument('--configure', nargs='?', const='', help='User interactive procedure to retrieve the .zip file from web; optionally provide file path as the next argument')
+    group.add_argument('--clean-configure', action='store_const', const=True, help='Remove web-derived files')
     args = parser.parse_args()
 
     # Fix paths
@@ -32,10 +32,9 @@ if __name__=='__main__':
 
     # Convert configure (w/zip) into plain configure
     if args.configure is not None and len(args.configure) > 0:
-        f = ' '.join(args.configure)
-        if not os.path.exists(f):
+        if not os.path.exists(args.configure):
             raise FileNotFoundError
-        shutil.copy(os.path.abspath(f), projDir)
+        shutil.copy(os.path.abspath(args.configure), projDir)
         args.configure = list()
     
     # Run the rest from the project directory    
