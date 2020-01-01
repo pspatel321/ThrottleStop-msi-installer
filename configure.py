@@ -34,7 +34,7 @@ if __name__=='__main__':
     if args.configure is not None and len(args.configure) > 0:
         if not os.path.exists(args.configure):
             raise FileNotFoundError
-        shutil.copy(os.path.abspath(args.configure), projDir)
+        shutil.copy(os.path.abspath(args.configure), solDir)
         args.configure = list()
     
     # Run the rest from the project directory    
